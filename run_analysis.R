@@ -84,7 +84,7 @@ combined_mean_std$activity <- unlist(combined_mean_std$activity)
 
 
 #couldn't find a better way to get all the data in one dataframe in the end then
-#to put the numerical data in a dataframe and the subjects and activities into a matrix 
+#to put the numerical data in a dataframe and the subjects and activities into a matrix. it's kind of ugly, I know
 avg_set_num  = data.frame(stringsAsFactors = FALSE)
 #in order to init the matrix, we need a first row, which we're going to delete in the end
 deleteme <- c("delete","me")
@@ -110,4 +110,4 @@ avg_set_char <- avg_set_char[-1,]
 #merge df and matrix
 avg_set = data.frame(avg_set_num, avg_set_char)
 colnames(avg_set) <- colnames(combined_mean_std)
-write.table(avg_set, file = "output.txt",  row.name = FALSE)
+write.table(avg_set, file = "tidydata.txt",  row.names = FALSE)
